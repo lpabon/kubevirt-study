@@ -1,0 +1,30 @@
+# SOURCE: https://install.portworx.com/?operator=true&mc=false&kbver=1.27.4&ns=portworx&b=true&c=under-cloud-0ce67689-fcd1-48aa-a1e9-cd5a35c98469&stork=true&csi=true&mon=true&tel=true&st=k8s&promop=true
+kind: StorageCluster
+apiVersion: core.libopenstorage.org/v1
+metadata:
+  name: under-cloud-0ce67689-fcd1-48aa-a1e9-cd5a35c98469
+  namespace: portworx
+  annotations:
+    portworx.io/install-source: "https://install.portworx.com/?operator=true&mc=false&kbver=1.27.4&ns=portworx&b=true&c=under-cloud-0ce67689-fcd1-48aa-a1e9-cd5a35c98469&stork=true&csi=true&mon=true&tel=true&st=k8s&promop=true"
+spec:
+  image: portworx/oci-monitor:2.13.10
+  imagePullPolicy: Always
+  kvdb:
+    internal: true
+  storage:
+    useAll: true
+  secretsProvider: k8s
+  stork:
+    enabled: true
+    args:
+      webhook-controller: "true"
+  autopilot:
+    enabled: true
+  csi:
+    enabled: true
+  monitoring:
+    telemetry:
+      enabled: true
+    prometheus:
+      enabled: true
+      exportMetrics: true
