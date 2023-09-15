@@ -1,3 +1,6 @@
+
+## Feature Gates
+
 Edit the folloging:
 
 ```
@@ -12,6 +15,7 @@ spec:
       featureGates:
         - HotplugVolumes
         - ExpandDisks
+        - Snapshot
         - HostDevices
         - HostDisk
 ```
